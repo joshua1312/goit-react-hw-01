@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+import Profile from "./components/Profile";
 import userData from "./userData.json";
-
-import './App.css'
+import friends from "./friends.json";
+import transactions from "./transactions.json";
+import FriendList from "./components/FriendList.jsx";
+import TransactionHistory from "./components/TransactionHistory.jsx";
+// import './App.css'
 
 const App = () => {
   return (
@@ -16,6 +16,8 @@ const App = () => {
         image={userData.avatar}
         stats={userData.stats}
       />
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
     </>
   );
 };
