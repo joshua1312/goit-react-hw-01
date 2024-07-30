@@ -1,7 +1,9 @@
-const TransactionHistory = (items) => {
+import css from "./TransactionHistory.module.css"
+
+const TransactionHistory = ({ items }) => {
     return (
-        <table>
-            <thead>
+        <table className={css.table}>
+            <thead className={css.tableHead}>
                 <tr>
                     <th>Type</th>
                     <th>Amount</th>
@@ -10,16 +12,14 @@ const TransactionHistory = (items) => {
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Invoice</td>
-                    <td>125</td>
-                    <td>USD</td>
-                </tr>
-                <tr>
-                    <td>Withdrawal</td>
-                    <td>85</td>
-                    <td>USD</td>
-                </tr>
+                {items.map((prop) => (
+
+                    <tr className={css.tableRecord} key={prop.id}>
+                        <td>{prop.type}</td>
+                        <td>{prop.amount}</td>
+                        <td>{prop.currency}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     );
